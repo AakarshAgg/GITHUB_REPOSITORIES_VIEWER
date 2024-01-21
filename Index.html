@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repositories Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--Header of the Page-->
+    <header>
+        <h1>GitHub Repositories Viewer</h1>
+    </header>
+    <div class="search">
+        <!--Repositories search functionality-->
+        <label for="username">Enter GitHub username:</label>
+        <input type="text" id="username" placeholder="Enter GitHub username">
+        <button onclick="fetchRepositories()" class="fetch">Fetch Repositories</button>
+
+        <!--Give options to show repositories per page-->
+        <label for="perPage" id="reposhow">Repositories per page:</label>
+        <select id="perPage" onchange="updatePerPage()">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+
+
+        <br><br>
+        <label for="search">Search repositories:</label>
+        <input type="text" id="search" placeholder="Search repositories">
+        <button onclick="searchRepositories()" class="fetch">Search Repositories</button>
+    </div>
+
+    <!--Display all the details after fetching from API-->
+    <div id="detailscontainer"></div>
+
+    <!--Display all the repository list-->
+    <div id="repositoriesList"></div>
+
+    <!--display pagination-->
+    <div class="pagination" id="pagination"></div>
+
+    <!--display loader-->
+    <div class="loader" id="loader" style="display: none;"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>
