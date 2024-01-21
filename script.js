@@ -17,7 +17,6 @@ async function fetchRepositories() {
     showLoader();
     const avatar = await fetch(`https://api.github.com/users/${username}`);
     const getavatar = await avatar.json();
-    console.log("get",getavatar);
     
  
     if(getavatar.message == "Not Found"){
@@ -49,7 +48,6 @@ repositoriesList.innerHTML = "";
       `https://api.github.com/users/${username}/repos?page=${currentPage}&per_page=${perPage}`
     );
     const data = await response.json();
-    console.log("response",response)
 
     if (data.message === "Not Found") {
       repositoriesList.innerHTML =
